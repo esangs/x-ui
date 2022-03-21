@@ -24,7 +24,7 @@ elif cat /proc/version | grep -Eqi "ubuntu"; then
 elif cat /proc/version | grep -Eqi "centos|red hat|redhat"; then
     release="centos"
 else
-    echo -e "${red}未检测到系统版本，请联系脚本作者！${plain}\n" && exit 1
+    echo -e "${red}未检测到系统版本，请付费联系作者：@hututu9 ！${plain}\n" && exit 1
 fi
 
 os_version=""
@@ -82,7 +82,7 @@ before_show_menu() {
 }
 
 install() {
-    bash <(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)
+    bash <(curl -Ls https://raw.githubusercontent.com/hututu9/x-ui/master/install.sh)
     if [[ $? == 0 ]]; then
         if [[ $# == 0 ]]; then
             start
@@ -101,7 +101,7 @@ update() {
         fi
         return 0
     fi
-    bash <(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)
+    bash <(curl -Ls https://raw.githubusercontent.com/hututu9/x-ui/master/install.sh)
     if [[ $? == 0 ]]; then
         echo -e "${green}更新完成，已自动重启面板${plain}"
         exit 0
@@ -281,7 +281,7 @@ install_bbr() {
 }
 
 update_shell() {
-    wget -O /usr/bin/x-ui -N --no-check-certificate https://github.com/vaxilu/x-ui/raw/master/x-ui.sh
+    wget -O /usr/bin/x-ui -N --no-check-certificate https://github.com/hututu9/x-ui/raw/master/x-ui.sh
     if [[ $? != 0 ]]; then
         echo ""
         echo -e "${red}下载脚本失败，请检查本机能否连接 Github${plain}"
@@ -401,12 +401,12 @@ show_usage() {
     echo "x-ui update       - 更新 x-ui 面板"
     echo "x-ui install      - 安装 x-ui 面板"
     echo "x-ui uninstall    - 卸载 x-ui 面板"
-    echo "------------------------------------------"
-}
+    echo "------------------------------------------" 
+    echo "-----${green}若有疑问，可以付费联系作者 @hututu9${plain}------" 
 
 show_menu() {
     echo -e "
-  ${green}x-ui 面板管理脚本${plain}
+  ${green}x-ui 面板管理脚本，若有疑问。可付费联系作者：@hututu9 ${plain}
   ${green}0.${plain} 退出脚本
 ————————————————
   ${green}1.${plain} 安装 x-ui
